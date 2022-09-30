@@ -1,0 +1,376 @@
+<script>
+    //creating a function(acc_number_generator()) to generate an account number
+    function acc_number_generator()
+    {
+        return Math.floor(Math.random() * (9999999999 - 1111111111 + 1)) + 1111111111;
+    }
+
+    // Object containing already verified user.
+    var custs_details = [
+        //NUMBER 1
+    {"custs_first_name": "ROSHEED", 
+        "custs_last_name": "BALOGUN",
+        "custs_middle_name": "ABIODUN", 
+        //"custs_age": 18, // 19, 20, 21], 
+        "cust_gender": "male",
+        "custs_phone_number": "08142570256",
+        "custs_email": "abiodunbalo163@gmail.com", 
+        "custs_marital_status": "single", 
+        "custs_acc_number": "5050863019", 
+        "custs_acc_balance": 7000, 
+        "custs_password": "1234",
+    },
+
+    // NUMBER 2
+    {"custs_first_name": "SAMUEL", 
+        "custs_last_name": "ULOKO", 
+        "custs_middle_name": "FX",  
+        //"custs_age": 18, // 19, 20, 21], 
+        "cust_gender": "male",
+        "custs_phone_number": "08050617322", 
+        "custs_email": "sammie30@gmail.com", 
+        "custs_marital_status": "married",
+        "custs_acc_number": "0227554673", 
+        "custs_acc_balance": 14000,
+        "custs_password": "5678",
+    },
+
+    //NUMBER 3
+    {"custs_first_name": "ALFRED", 
+        "custs_last_name": "AYILARA", 
+        "custs_middle_name": "PUR", 
+        //"custs_age": 18, // 19, 20, 21], 
+        "cust_gender": "male",
+        "custs_phone_number": "08050277932",
+        "custs_email": "ayilarapur@gmail.com", 
+        "custs_marital_status": "married", 
+        "custs_acc_number": "20306632123",
+        "custs_acc_balance": 21000, 
+        "custs_password": "9101",
+    },
+     //NUMBER 4
+    {"custs_first_name": "DAVID", 
+        "custs_last_name": "ADESHINA", 
+        "custs_middle_name": "ENIOLA", 
+        //"custs_age": 18, // 19, 20, 21], 
+        "cust_gender": "male",
+        "custs_phone_number": "09031247889",
+        "custs_email": "enioladavids@gmail.com",
+        "custs_marital_status": "divorced", 
+        "custs_acc_number": "1234567891", 
+        "custs_acc_balance": 28000, 
+        "custs_password": "1121", 
+    },
+     //NUMBER 5
+    {"custs_first_name": "REJOICE", 
+        "custs_last_name": "OLANREWAJU",
+        "custs_middle_name": "ADESHOLA", 
+        //"custs_age": 18, // 19, 20, 21], 
+        "cust_gender": "female",
+        "custs_phone_number": "09062478266", 
+        "custs_email": "sexyrejjy05@gmail.com", 
+        "custs_marital_status": "married",
+        "custs_acc_number": "02276634523", 
+        "custs_acc_balance": 35000, 
+        "custs_password": "3141", 
+    }
+];
+   
+   function Update_custs_details(details, prop, value)
+   {
+     //creating a fuction(Update_custs_details()) to check input present in object.
+    for(x = 0; x < details.length; x++){
+        if(prop == "custs_email" || prop == "custs_phone_number") {
+            if(details[x][prop] == value) {
+            return "data already in use";
+        }
+      }
+      else{
+        return value;
+      }
+    }
+   }
+
+   //initializing variables
+   let first_name;
+   let last_name;
+   let middle_name;
+   //let age;
+   let phone_number;
+   let email;
+   let marital_status;
+   let acc_number;
+   let acc_balance;
+   let gender;
+   let password;
+   let transactions;
+   let check_info;
+   var user_prompt;
+    do 
+    {
+    user_prompt = prompt("SIGN UP OR LOGIN:").toLowerCase();
+    }
+    while(user_prompt !== "sign up" && user_prompt !== "login");
+
+if(user_prompt === "sign up")
+{
+        
+    // looping phone number instructions
+    do{
+        first_name = prompt("ENTER FIRST_NAME:").toUpperCase();
+        }
+    while(typeof first_name !== "string");
+
+
+    //calling update function
+    console.log(Update_custs_details(custs_details, "custs_first_name", first_name));
+
+
+    // looping phone number instructions
+    do{
+        last_name = prompt("ENTER LAST_NAME:").toUpperCase();
+        }
+    while(typeof last_name !== "string");
+    
+
+    //calling update function
+    console.log(Update_custs_details(custs_details, "custs_last_name", last_name));
+
+
+    // looping phone number instructions
+    do{
+        middle_name = prompt("ENTER MIDDLE_NAME:").toUpperCase();
+        }
+    while(typeof middle_name !== "string");
+    
+
+    //calling update function
+    console.log(Update_custs_details(custs_details, "custs_middle_name", middle_name));
+
+
+        // looping phone number instructions
+        do{
+            do{
+                gender = prompt("GENDER(male or female):").toLowerCase();
+            }
+            while(typeof gender !== "string");
+        }  
+        while(gender !== "male" && gender !== "female");
+    
+
+    //calling update function
+    console.log(Update_custs_details(custs_details, "cust_gender", gender));
+
+
+    // looping phone number instructions
+    do{
+        do{
+        marital_status = prompt("MARITAL STATUS:").toUpperCase();
+        }
+        while(typeof marital_status !== "string");
+    }  
+    while(marital_status !== "SINGLE" && marital_status !== "MARRIED" && marital_status !== "DIVORCED" && marital_status !== "COMPLICATED");
+    
+
+    //calling update function
+    console.log(Update_custs_details(custs_details, "custs_marital_status", marital_status));
+
+    
+    // looping phone number instructions
+    do{
+    do{
+        phone_number = prompt("PHONE NUMBER:");
+        }
+        while(isNaN(phone_number));
+    } 
+    while(phone_number.length !== 11 );
+
+
+    //calling update function
+    console.log(Update_custs_details(custs_details, "custs_phone_number", phone_number));
+    
+    // looping email instructions
+        do{
+            email = prompt("ENTER EMAIL:").toLowerCase();
+        } 
+        while(typeof email !== "string");
+
+
+    //calling update function
+    console.log(Update_custs_details(custs_details, "custs_email", email));
+    
+    //  MARITAL STATUS WORK OUT
+    if(marital_status === "DIVORCED" || marital_status === "MARRIED") {
+        if(gender === "male") {
+            alert(`CONGRATULATIONS "MR ${last_name} ${first_name} ${middle_name}".\nYOU SUCCESSFULY LOGGED IN \nPLEASE COMPLETE THE REMAINING PROCESS`);
+            console.log(`CONGRATULATIONS "MR ${last_name} ${first_name} ${middle_name}".\nYOU SUCCESSFULY LOGGED IN \nPLEASE COMPLETE THE REMAINING PROCESS`);
+        }
+        else
+        {
+            alert(`CONGRATULATIONS "MRS ${last_name} ${first_name} ${middle_name}".\nYOU SUCCESSFULY LOGGED IN \nPLEASE COMPLETE THE REMAINING PROCESS`);
+            console.log(`CONGRATULATIONS "MRS ${last_name} ${first_name} ${middle_name}".\nYOU SUCCESSFULY LOGGED IN \nPLEASE COMPLETE THE REMAINING PROCESS`);
+        }
+    }
+    else
+    {
+        if(gender === "male"){
+            alert(`CONGRATULATIONS "MR ${last_name} ${first_name} ${middle_name}".\nYOU SUCCESSFULY LOGGED IN \nPLEASE COMPLETE THE REMAINING PROCESS`);
+            console.log(`CONGRATULATIONS "MR ${last_name} ${first_name} ${middle_name}".\nYOU SUCCESSFULY LOGGED IN \nPLEASE COMPLETE THE REMAINING PROCESS`);
+        }
+        if(gender === "female")
+        {
+            alert(`CONGRATULATIONS "MISS ${last_name} ${first_name} ${middle_name}".\nYOU SUCCESSFULY LOGGED IN \nPLEASE COMPLETE THE REMAINING PROCESS`);
+            console.log(`CONGRATULATIONS "MISS ${last_name} ${first_name} ${middle_name}".\nYOU SUCCESSFULY LOGGED IN \nPLEASE COMPLETE THE REMAINING PROCESS`);
+        }
+    }
+        //CREATING/GENERATING AN ACCOUNT NUMBER
+        acc_number = acc_number_generator();
+        alert(`BANK ACCOUNT: ${Update_custs_details(custs_details, "custs_acc_number", acc_number)}`);
+        console.log(`BANK ACCOUNT: ${Update_custs_details(custs_details, "custs_acc_number", acc_number)}`);
+    
+
+    // looping password instructions
+            do{
+                do{
+                    password = prompt("ENTER PASSWORD:");
+                }
+                while(isNaN(password));
+            } 
+            while(password.length !== 4 );
+
+    // confirming password instructions
+            do{
+                con_password = prompt("CONFIRM PASSWORD:");
+                } 
+            while(con_password !== password );
+
+
+    //calling update function
+    console.log(Update_custs_details(custs_details, "custs_password", password));
+    
+    //welcome message   
+        alert(`PASSWORD SUCCESSFULLY UPDATED!\nDEPOSIT TO START ENJOYING OUR PREMIUM OFFERS.\nTHANKS FOR BANKING WITH US`);
+        console.log(`PASSWORD SUCCESSFULLY UPDATED!\nDEPOSIT TO START ENJOYING OUR PREMIUM OFFERS.\nTHANKS FOR BANKING WITH US`);
+    
+        // WORK DONE
+        console.log("signned up!");            
+}
+else
+{//sexyrejjy05@gmail.com
+    
+    function LoginData(details, prop, value, balance, check_info, UserAmount)  {
+        for(x = 0; x < details.length; x++)
+            {
+            if(prop === "custs_email" || prop === "custs_phone_number")
+            {
+               if(details[x][prop] === value)
+                {
+                    if(check_info === "withdraw")
+                    {             
+                        if(details[x]["custs_acc_balance"] < UserAmount)
+                        {
+                            alert("SORRY,YOU DON'T HAVE SUFFICIENT FUND");
+                            return "SORRY,YOU DON'T HAVE SUFFICIENT FUND";
+                        }
+                        else
+                        {
+                        custs_details[x]["custs_acc_balance"] = details[x]["custs_acc_balance"] - parseInt(UserAmount, 10);
+                        alert(`NEW ACCOUNT BALANCE:\n#${details[x][balance]}.`);
+                        return `NEW ACCOUNT BALANCE:\n#${details[x][balance]}.`;
+                        }
+                        }
+                    else
+                    {
+                        custs_details[x]["custs_acc_balance"] = parseInt(details[x][balance], 10) + parseInt(UserAmount, 10);
+                        alert(`NEW ACCOUNT BALANCE:\n#${details[x][balance]}.`);
+                        return `NEW ACCOUNT BALANCE:\n#${details[x][balance]}.`;
+                    }
+                }
+            }
+                else
+                    {
+                        alert("INVALID DETAILS!.");
+                        return "INVALID DETAILS!.";
+                
+                    }
+            }
+        }
+    }  
+
+
+ //08050617322       
+ //sammie30@gmail.com       
+//08142570256
+//abiodunbalo163@gmail.com
+    alert("LOGIN WITH EMAIL OR PHONE NUMBER.");
+    do{
+        do
+        {
+          check_info = prompt("EMAIL OR PHONE NUMBER:").toLowerCase();
+        }
+        while(!isNaN(check_info));
+      }
+      while(check_info !== "email" && check_info !== "phone number");
+      //////////////////////////////////////////////////////////
+    
+      //IF CHECK INFO EQUALS EMAIL
+      if(check_info === "email")
+      {
+         // looping email instructions while check_info equals true
+         do{
+                email = prompt("ENTER EMAIL:").toLowerCase();
+            } 
+            while(!isNaN(email));
+            ///////////////////////////////////////////////////////////////////
+
+            // TYPE OF TRANSACTION TO PERFORM
+            do{
+                transactions = prompt("WITHDRAW OR DEPOSIT:").toLowerCase();
+              }
+              while(transactions !== "withdraw" && transactions !== "deposit");
+              //////////////////////////////////////////////////////////////////////
+
+               // AMOUNT TO BE MOVED
+            do{
+                amount = prompt("ENTER AMOUNT:");
+                }  
+                while(isNaN(amount));
+                ///////////////////////////////////////////////////////////////////////
+
+            //SENDING RESULTS UP TO THE FUNCTION FOR COMPLETION
+            console.log(LoginData(custs_details, "custs_email", email, "custs_acc_balance",transactions, amount));
+      }
+      else
+      {
+        // looping phone number instructions
+        do{
+            do{
+                phone_number = prompt("PHONE NUMBER:");
+                }
+                while(isNaN(phone_number));
+            } 
+        while(phone_number.length !== 11 );
+        ////////////////////////////////////////////////////////////////////////////
+
+        // TYPE OF TRANSACTION TO PERFORM
+        do{
+            do{
+                transactions = prompt("WITHDRAW OR DEPOSIT:").toLowerCase();
+              } 
+              while(!isNaN(transactions)); 
+          }
+          while(transactions !== "withdraw" && transactions !== "deposit");
+          //////////////////////////////////////////////////////////////////////////
+
+        // AMOUNT TO BE MOVED
+        do{
+            amount = prompt("ENTER AMOUNT:");
+          }  
+          while(isNaN(amount));
+          /////////////////////////////////////////////////////////////////////////
+
+        //SENDING RESULTS UP TO THE FUNCTION FOR COMPLETION
+        console.log(LoginData(custs_details, "custs_phone_number", phone_number, "custs_acc_balance", transactions, amount));
+        console.log("logged in");
+}   
+</script>
